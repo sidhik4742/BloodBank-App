@@ -1,0 +1,109 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: white;
+} 
+.row{
+    margin: 0;
+}
+ .navbarPosition{
+    /* position: fixed; */
+    width: 100%;
+    height: auto;
+    transition: top 0.3s;
+} 
+
+
+.body1{
+    background-image: url(../images/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    width: 100%;
+    height: auto;
+    
+}
+.contentText{
+   padding-top: 13rem;
+   padding-bottom: 13rem;
+   padding-left: 5rem;
+   padding-right: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+.text-block{
+    position: absolute;
+    padding-left:10px;
+    padding-right: 10px;
+    background-color: red;
+    right: 0;
+}
+.formData{
+    float: left;
+    margin-top: 5rem;
+    margin-left: 5rem; 
+    margin-right: 25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border:1px solid rgb(253, 4, 241);
+    border-radius: 10px;
+    align-items: center;
+    
+}
+.w3-input{
+    background-color: grey;
+    border-radius: 10px;
+    width: 22rem;
+}
+.mandatory{
+    color: red;
+}
+.appointimage{
+    width: 80%;
+    height:auto
+}
+
+@media only screen and (max-width: 875px) {
+    .contentText{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .appointimage{
+        display: none;
+    }
+    .formData{
+        align-items: center;
+        margin-left: 0 !important;
+    }
+    .w3-input{
+        width: 20rem !important;
+    }
+    .w3-container{
+        padding-right: 1rem !important;
+    }
+    .bloodgroup{
+        width: 20rem !important;
+    }
+    .btn{
+        margin-top: 2rem;
+        margin-left: 6rem;
+    }
+}
+
+  .imagealignment{
+      float: left;
+      display: block;
+      padding-left: 6rem;
+  } 
+  .bloodgroup{
+      margin-top: 2rem;
+      width: 22rem;
+      height: 3rem;
+      border-radius: 10px;
+  }
+  .btn{
+      margin-top: 2rem;
+      margin-left: 7rem;
+  }

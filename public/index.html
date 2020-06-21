@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blood Bank</title>
     <!-- CSS Files -->
-    <link href="../assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+    <link href="assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
 
     <!--Custom css-->
-    <link rel="stylesheet" href="../css/bloodBank.css" type="text/css" />
+    <link rel="stylesheet" href="css/bloodBank.css" type="text/css" />
   </head>
   <body>
     <header>
@@ -18,7 +24,7 @@
           <div class="container">
             <!-- Navbar content -->
             <a class="" href="#">
-              <img src="../images/logo.png" alt="" srcset="" />
+              <img src="images/logo.png" alt="" srcset="" />
             </a>
             <button
               class="navbar-toggler"
@@ -57,7 +63,7 @@
     </header>
     <section>
       <div class="body1">
-        <div class="col-md-12 col-12">
+        <div class="col-md-12 col-12" id="main">
           <div class="contentText">
             <h1 class="text-center">
               DONATE BLOOD AND GET REAL BLESSINGS.
@@ -68,6 +74,30 @@
               lives."
             </h4>
           </div>
+          <div class="searchlogo" id="searchlogo">
+            <i class="fa fa-search fa-3x" aria-hidden="true"></i>
+          </div>
+          <div class="" id="animationDiv">
+            <div class="search-donar-input" id="search-donar-input">
+              <input
+                type="text"
+                name="search-place"
+                id="searchPlace"
+                placeholder="Place"
+                required
+              />
+              <input
+                type="text"
+                name="search-bloodgroup"
+                id="search-bloodgroup"
+                placeholder="Blood Group"
+                required
+              />
+            </div>
+            <div class="search-donarBtn" id="search-donarBtn">
+              <button type="button" id="searchbtn">Find donar</button>
+            </div>
+          </div>
         </div>
       </div>
       <div class="">
@@ -75,16 +105,22 @@
           REGISTER NOW
           <br />
           <span>
-            <img src="../images/separator.png" alt="" srcset="" />
+            <img src="images/separator.png" alt="" srcset="" />
           </span>
         </h1>
       </div>
       <div class="row">
         <div class="col-md-6 col-12 imagealignment">
-          <img class="appointimage" src="../images/appointment.jpg" alt="" />
+          <img class="appointimage" src="images/appointment.jpg" alt="" />
         </div>
         <div class="col-md-6 col-12">
-          <form action="" method="post" class="formData w3-container" id="registration-form">
+          <form
+            action="/index"
+            method="post"
+            class="formData w3-container"
+            id="registration-form"
+            enctype="application/x-www-form-urlencoded"
+          >
             <label for="firstname"
               >First Name <span class="mandatory">*</span></label
             >
@@ -93,26 +129,50 @@
               type="text"
               name="firstname"
               id="firstname"
+              required
             />
 
             <label for="lastname"
               >Last Name <span class="mandatory">*</span></label
             >
-            <input class="w3-input" type="text" name="lastname" id="lastname" />
+            <input
+              class="w3-input"
+              type="text"
+              name="lastname"
+              id="lastname"
+              required
+            />
 
             <label for="mobnum"
               >Mobile Number <span class="mandatory">*</span></label
             >
-            <input class="w3-input" type="text" name="mobnum" id="mobnum" />
+            <input
+              class="w3-input"
+              type="text"
+              name="mobnum"
+              id="mobnum"
+              required
+            />
 
             <label for="email">Email ID(optional)</label>
-            <input class="w3-input" type="text" name="email" id="email" />
+            <input class="w3-input" type="email" name="email" id="email" />
 
             <label for="place">Place <span class="mandatory">*</span></label>
-            <input class="w3-input" type="text" name="place" id="place" />
+            <input
+              class="w3-input"
+              type="text"
+              name="place"
+              id="place"
+              required
+            />
 
-            <select class="bloodgroup" name="blood-group" id="bloodgroup">
-              <option value="" id="none">Blood Group</option>
+            <label for="blood-group">Blood Group <span class="mandatory">*</span></label>
+            <select
+              class="bloodgroup"
+              name="blood-group"
+              id="bloodgroup"
+            >
+              <option value="" id="none"></option>
               <option value="A+" id="A+">A+</option>
               <option value="A-" id="A-">A-</option>
               <option value="B+" id="B+">B+</option>
@@ -120,9 +180,15 @@
               <option value="O+" id="O+">O+</option>
               <option value="O-" id="O-">O-</option>
               <option value="AB+" id="AB+">AB+</option>
-              <option value="AB_" id="AB-">AB-</option>
+              <option value="AB-" id="AB-">AB-</option>
             </select>
-            <button class="btn btn-danger animation-on-hover" type="button">Register</button>
+            <button
+              class="btn btn-danger animation-on-hover"
+              type="button"
+              id="register"
+            >
+              Register
+            </button>
           </form>
         </div>
       </div>
@@ -133,7 +199,7 @@
           DONATION PROCESS
           <br />
           <span>
-            <img src="../images/separator.png" alt="" srcset="" />
+            <img src="images/separator.png" alt="" srcset="" />
           </span>
         </h1>
       </div>
@@ -142,7 +208,7 @@
           <div class="card" style="width: 20rem;">
             <img
               class="card-img-top"
-              src="../images/process_1.jpg"
+              src="images/process_1.jpg"
               alt="Card image cap"
             />
             <div class="text-block">
@@ -162,7 +228,7 @@
           <div class="card" style="width: 20rem;">
             <img
               class="card-img-top"
-              src="../images/process_2.jpg"
+              src="images/process_2.jpg"
               alt="Card image cap"
             />
             <div class="text-block">
@@ -182,7 +248,7 @@
           <div class="card" style="width: 20rem;">
             <img
               class="card-img-top"
-              src="../images/process_3.jpg"
+              src="images/process_3.jpg"
               alt="Card image cap"
             />
             <div class="text-block">
@@ -202,34 +268,32 @@
     </section>
 
     <!--   Core JS Files   -->
+    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
     <script
-      src="../assets/js/core/jquery.min.js"
+      src="assets/js/core/bootstrap.min.js"
       type="text/javascript"
     ></script>
-    <script
-      src="../assets/js/core/popper.min.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="../assets/js/core/bootstrap.min.js"
-      type="text/javascript"
-    ></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     <!--  Google Maps Plugin    -->
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <!-- Chartist JS -->
-    <script src="../assets/js/plugins/chartjs.min.js"></script>
+    <script src="assets/js/plugins/chartjs.min.js"></script>
     <!--  Notifications Plugin    -->
-    <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+    <script src="assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script
-      src="../assets/js/black-dashboard.js?v=1.0.0"
+      src="assets/js/black-dashboard.js?v=1.0.0"
       type="text/javascript"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js" integrity="sha256-lIXwkX+X/PT2Ol6jZSAP/VfxI/RROCovmhrS4v1RrJs=" crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js"
+      integrity="sha256-lIXwkX+X/PT2Ol6jZSAP/VfxI/RROCovmhrS4v1RrJs="
+      crossorigin="anonymous"
+    ></script>
     <!--file system-->
     <!-- <script src="https://cdn.jsdelivr.net/npm/fs-js@1.0.6/index.min.js"></script> -->
     <!--custom script-->
-    <script src="../js/bloodBank.js" type="text/javascript"></script>
+    <script src="js/bloodBank.js" type="text/javascript"></script>
   </body>
 </html>

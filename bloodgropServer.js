@@ -37,12 +37,11 @@ app.post('/findData',function(req,res){
    //check the value from the client with the json array(DB)
   // if a value match then take the value and sent to back
   for(var counter =0;counter < dataFromFile.length;counter++){
-    if(dataFromFile[counter].Place === req.body.Place && dataFromFile[counter].BloodGroup === req.body.BloodGroup){
-      console.log("find matches "+counter);
+    if(dataFromFile[counter].Place === req.body.Place || dataFromFile[counter].BloodGroup === req.body.BloodGroup){
       findMatch.push(dataFromFile[counter]); 
     }
   };
- 
+  console.log("No. of matches found = "+findMatch.length);
 
   res.json(findMatch);
   res.end();
@@ -73,9 +72,18 @@ function readTofileAsDB(){
   console.log("readfile...........")
   let personDetailsfromDB ;
   let data = fs.readFileSync('Db/Blood-groupAddress.json', 'utf8');
+  try{
+    if(data != "")
+    throw("Empty file");
+  }
+  catch{
+    console.log(err);
+  }
+  finally{
       personDetailsfromDB = JSON.parse(data);
       // console.log(typeof(personDetailsfromDB));
       // console.log(personDetailsfromDB[0]);
       return(personDetailsfromDB);
+  }
   
 }

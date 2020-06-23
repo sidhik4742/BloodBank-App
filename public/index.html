@@ -49,9 +49,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#registration-form">Register</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Search Near</a>
-                </li>
               </ul>
               <span class="navbar-text">
                 Welcome to blood donation center.
@@ -75,7 +72,7 @@
             </h4>
           </div>
           <div class="searchlogo" id="searchlogo">
-            <i class="fa fa-search fa-3x" aria-hidden="true"></i>
+            <i class="fa fa-search fa-3x " aria-hidden="true"></i>
           </div>
           <div class="" id="animationDiv">
             <div class="search-donar-input" id="search-donar-input">
@@ -86,16 +83,53 @@
                 placeholder="Place"
                 required
               />
-              <input
-                type="text"
-                name="search-bloodgroup"
-                id="search-bloodgroup"
-                placeholder="Blood Group"
-                required
-              />
+              <select
+              class="search-donar-list"
+              name="searchDonarlist"
+              id="searchDonarlist"
+            >
+              <option value="" id="none">Blood Group</option>
+              <option value="A+" id="A+">A+</option>
+              <option value="A-" id="A-">A-</option>
+              <option value="B+" id="B+">B+</option>
+              <option value="B-" id="B-">B-</option>
+              <option value="O+" id="O+">O+</option>
+              <option value="O-" id="O-">O-</option>
+              <option value="AB+" id="AB+">AB+</option>
+              <option value="AB-" id="AB-">AB-</option>
+            </select>
             </div>
             <div class="search-donarBtn" id="search-donarBtn">
-              <button type="button" id="searchbtn">Find donar</button>
+              <button type="button" id="searchbtn" data-toggle="modal" data-target="#exampleModal">Find donar</button>
+            </div>
+          </div>
+        </div>
+        <div class="" id="table-information">
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Blood Group DataBase</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="tim-icons icon-simple-remove"></i>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                      Searched keywords:- <br> Place- 
+                      <span id="keyword_place"></span>
+                      <br>
+                      Blood Group- 
+                      <span id="keyword_bloodgroup"></span>
+                      .
+                    </p>
+                  <table class="show-table" id="show-table">
+                  </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

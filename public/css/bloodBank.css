@@ -78,7 +78,7 @@ body{
     box-shadow: 5px 10px rgba(37,37,37,0.8);
     border: 2px solid black;
     /* border-color: rgba(37,37,37,0.8) !important; */
-    padding: 4px;
+    padding: 5px;
     margin: 1rem;
     color: white !important;
 
@@ -87,7 +87,7 @@ body{
     background-color: rgba(37,37,37,0.8);
     border-color: rgba(37,37,37,0.8) !important;
     outline-color:rgba(37,37,37,0.8) !important;
-
+66
 }
 .search-donar-list{
     background-color: transparent;
@@ -124,6 +124,11 @@ body{
 .table-information{
     display: none;
 }
+.modal-content p{
+    
+    text-align: center;
+}
+
 
 table{
     width: 100%;

@@ -78,16 +78,37 @@ $(document).ready(function () {
 
     xhr.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
+        // console.log(this.responseText);
+        console.log(tableClearingFlag);
         if (this.responseText != "[]") {
           let tableInformation = JSON.parse(this.responseText);
-          // console.log (tableInformation);
+          console.log ("bject contain data");
           if (tableClearingFlag === true) {
             clearingaTable();
             tableClearingFlag = false;
           }
           showContentTable(tableInformation);
         } else {
-          showTable.classList.add("table-information");
+          console.log ("bject contain no-data");
+          alert("Nothing Matched!. please try first letter capitalized");
+          if (tableClearingFlag === true) {
+              clearingaTable();
+              tableClearingFlag = false;
+            }
+            // console.log ("bject contain no-data");
+            // if (tableClearingFlag === true) {
+            //   document.getElementById("table-information").innerHTML = " ";
+            //   tableClearingFlag = false;
+            // }
+            // let pTag = document.createElement("p");
+            // let textNode = document.createTextNode(
+            //   "Nothing Matched!. please try first letter capitalized"
+            // );
+            // pTag.appendChild(textNode);
+            // showTable.appendChild(pTag);
+            // tableClearingFlag = true;
+            // console.log(showTable);
+            // console.log(tableClearingFlag);
         }
       }
     };
@@ -99,7 +120,9 @@ $(document).ready(function () {
   });
 
   function showContentTable(tableInformation) {
+    console.log(typeof(tableInformation));
     console.log(tableInformation);
+
     // let firstname = tableInformation[0].FirstName;
     // let lastName = tableInformation[0].LastName;
     // let mobilenumber = tableInformation[0].MobileNumber;
@@ -108,27 +131,35 @@ $(document).ready(function () {
     var row = table.insertRow(0);
     var cell0 = row.insertCell(0);
     var cell1 = row.insertCell(1);
+    var cell2 = row.insertCell(2);
     cell0.innerHTML = "Name";
     cell1.innerHTML = "Contact Number";
+    cell2.innerHTML = "Blood Group";
     tableInformation.forEach(function (item, index, array) {
       // console.log(item);
       row = table.insertRow(index + 1);
       cell0 = row.insertCell(0);
       cell1 = row.insertCell(1);
-      cell0.innerHTML = item.FirstName;
+      cell2 = row.insertCell(2);
+      cell0.innerHTML = item.FirstName + " " + item.LastName;
       cell1.innerHTML = item.MobileNumber;
+      cell2.innerHTML = item.BloodGroup;
+      document.getElementById("table-information").appendChild(table);
     });
     tableClearingFlag = true;
+    tableInformation.length = 0;
+    console.log(tableClearingFlag);
   }
 
   function clearingaTable() {
     let table = document.getElementById("show-table");
     let tableRows = document.getElementsByTagName("tr");
     var rowCount = tableRows.length;
-    console.log(tableRows);
+    // console.log(tableRows);
     while (table.firstChild) {
       table.removeChild(table.firstChild);
     }
     console.log(table);
+
   }
 });

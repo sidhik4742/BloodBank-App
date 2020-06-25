@@ -20,7 +20,7 @@
   <body>
     <header>
       <div class="navbarPosition" id="navbar">
-        <nav class="navbar navbar-expand-lg bg-success">
+        <nav class="navbar navbar-expand-lg bg-info">
           <div class="container">
             <!-- Navbar content -->
             <a class="" href="#">
@@ -72,62 +72,71 @@
             </h4>
           </div>
           <div class="searchlogo" id="searchlogo">
-            <i class="fa fa-search fa-3x " aria-hidden="true"></i>
+            <i class="fa fa-search fa-3x" aria-hidden="true"></i>
           </div>
           <div class="" id="animationDiv">
             <div class="search-donar-input" id="search-donar-input">
-              <input
-                type="text"
-                name="search-place"
-                id="searchPlace"
-                placeholder="Place"
-                required
-              />
               <select
-              class="search-donar-list"
-              name="searchDonarlist"
-              id="searchDonarlist"
-            >
-              <option value="" id="none">Blood Group</option>
-              <option value="A+" id="A+">A+</option>
-              <option value="A-" id="A-">A-</option>
-              <option value="B+" id="B+">B+</option>
-              <option value="B-" id="B-">B-</option>
-              <option value="O+" id="O+">O+</option>
-              <option value="O-" id="O-">O-</option>
-              <option value="AB+" id="AB+">AB+</option>
-              <option value="AB-" id="AB-">AB-</option>
-            </select>
+                class="search-donar-list"
+                name="searchDonarlist"
+                id="searchDonarlist"
+              >
+                <option value="" id="none">District</option>
+              </select>
+              <select
+                class="search-donar-list"
+                name="searchDonarlist"
+                id="searchDonarlist"
+              >
+                <option value="" id="none">Blood Group</option>
+                <option value="A+" id="A+">A+</option>
+                <option value="A-" id="A-">A-</option>
+                <option value="B+" id="B+">B+</option>
+                <option value="B-" id="B-">B-</option>
+                <option value="O+" id="O+">O+</option>
+                <option value="O-" id="O-">O-</option>
+                <option value="AB+" id="AB+">AB+</option>
+                <option value="AB-" id="AB-">AB-</option>
+              </select>
             </div>
             <div class="search-donarBtn" id="search-donarBtn">
-              <button type="button" id="searchbtn" data-toggle="modal" data-target="#exampleModal">Find donar</button>
+              <button
+                type="button"
+                id="searchbtn"
+                data-toggle="modal"
+                data-target="#exampleModalLong"
+              >
+                Find donar
+              </button>
             </div>
           </div>
         </div>
-        <div class="" id="table-information">
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Blood Group DataBase</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    <i class="tim-icons icon-simple-remove"></i>
-                  </button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                      Searched keywords:- <br> Place- 
-                      <span id="keyword_place"></span>
-                      <br>
-                      Blood Group- 
-                      <span id="keyword_bloodgroup"></span>
-                      .
-                    </p>
-                  <table class="show-table" id="show-table">
-                  </table>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <div
+          class="modal fade"
+          id="exampleModalLong"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLongTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  Matched donors database
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="table-information">
+                <div class="" >
+                  <table class="show-table" id="show-table"></table>
                 </div>
               </div>
             </div>
@@ -191,7 +200,7 @@
             <label for="email">Email ID(optional)</label>
             <input class="w3-input" type="email" name="email" id="email" />
 
-            <label for="place">Place <span class="mandatory">*</span></label>
+            <label for="place">District <span class="mandatory">*</span></label>
             <input
               class="w3-input"
               type="text"
@@ -200,12 +209,10 @@
               required
             />
 
-            <label for="blood-group">Blood Group <span class="mandatory">*</span></label>
-            <select
-              class="bloodgroup"
-              name="blood-group"
-              id="bloodgroup"
+            <label for="blood-group"
+              >Blood Group <span class="mandatory">*</span></label
             >
+            <select class="bloodgroup" name="blood-group" id="bloodgroup">
               <option value="" id="none"></option>
               <option value="A+" id="A+">A+</option>
               <option value="A-" id="A-">A-</option>

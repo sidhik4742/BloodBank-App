@@ -42,12 +42,19 @@
             <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#"
+                  <a class="nav-link" id="home" href="#"
                     >Home <span class="sr-only">(current)</span></a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#registration-form">Register</a>
+                  <a class="nav-link" href="#registration-form"
+                    >Donar-Registration</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#registration-form"
+                    >Request Blood</a
+                  >
                 </li>
               </ul>
               <span class="navbar-text">
@@ -58,37 +65,164 @@
         </nav>
       </div>
     </header>
-    <section>
-      <div class="body1">
-        <div class="col-md-12 col-12" id="main">
-          <div class="contentText">
-            <h1 class="text-center">
-              DONATE BLOOD AND GET REAL BLESSINGS.
-            </h1>
-            <h4 class="text-center">
-              "Blood is the most precious gift that anyone can give to another
-              person. Donating blood not only saves the life also save donor's
-              lives."
-            </h4>
+    <main>
+      <section>
+        <div class="body1">
+          <div class="col-md-12 col-12" id="main">
+            <div class="contentText">
+              <h1 class="text-center">
+                DONATE BLOOD AND GET REAL BLESSINGS.
+              </h1>
+              <h4 class="text-center">
+                "Blood is the most precious gift that anyone can give to another
+                person. Donating blood not only saves the life also save donor's
+                lives."
+              </h4>
+            </div>
+            <div class="searchlogo" id="searchlogo">
+              <i class="fa fa-search fa-3x" aria-hidden="true"></i>
+            </div>
+            <div class="" id="animationDiv">
+              <div class="search-donar-input" id="search-donar-input">
+                <select
+                  class="search-donar-place"
+                  name="searchDonarlist"
+                  id="searchDonardistrict"
+                >
+                  <option value="">District</option>
+                </select>
+                <select
+                  class="search-donar-list"
+                  name="searchDonarlist"
+                  id="searchDonarlist"
+                >
+                  <option value="" id="none">Blood Group</option>
+                  <option value="A+" id="A+">A+</option>
+                  <option value="A-" id="A-">A-</option>
+                  <option value="B+" id="B+">B+</option>
+                  <option value="B-" id="B-">B-</option>
+                  <option value="O+" id="O+">O+</option>
+                  <option value="O-" id="O-">O-</option>
+                  <option value="AB+" id="AB+">AB+</option>
+                  <option value="AB-" id="AB-">AB-</option>
+                </select>
+              </div>
+              <div class="search-donarBtn" id="search-donarBtn">
+                <button
+                  type="button"
+                  id="searchbtn"
+                  data-toggle="modal"
+                  data-target="#exampleModalLong"
+                >
+                  Find donar
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="searchlogo" id="searchlogo">
-            <i class="fa fa-search fa-3x" aria-hidden="true"></i>
+          <div
+            class="modal fade"
+            id="exampleModalLong"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLongTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">
+                    Matched donors database
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" id="table-information">
+                  <div class="">
+                    <table class="show-table" id="show-table"></table>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="" id="animationDiv">
-            <div class="search-donar-input" id="search-donar-input">
-              <select
-                class="search-donar-list"
-                name="searchDonarlist"
-                id="searchDonarlist"
+        </div>
+        <div class="">
+          <h1 class="text-center text-darker pt-lg">
+            REGISTER NOW
+            <br />
+            <span>
+              <img src="images/separator.png" alt="" srcset="" />
+            </span>
+          </h1>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-12 imagealignment">
+            <img class="appointimage" src="images/appointment.jpg" alt="" />
+          </div>
+          <div class="col-md-6 col-12">
+            <form
+              action="/index"
+              method="post"
+              class="formData w3-container"
+              id="registration-form"
+              enctype="application/x-www-form-urlencoded"
+            >
+              <label for="firstname"
+                >First Name <span class="mandatory">*</span></label
               >
-                <option value="" id="none">District</option>
+              <input
+                class="w3-input"
+                type="text"
+                name="firstname"
+                id="firstname"
+                required
+              />
+
+              <label for="lastname"
+                >Last Name <span class="mandatory">*</span></label
+              >
+              <input
+                class="w3-input"
+                type="text"
+                name="lastname"
+                id="lastname"
+                required
+              />
+
+              <label for="mobnum"
+                >Mobile Number <span class="mandatory">*</span></label
+              >
+              <input
+                class="w3-input"
+                type="text"
+                name="mobnum"
+                id="mobnum"
+                required
+              />
+
+              <label for="email">Email ID(optional)</label>
+              <input class="w3-input" type="email" name="email" id="email" />
+
+              <label for="District"
+                >District <span class="mandatory">*</span></label
+              >
+              <select
+                class="distName bloodgroup"
+                name="districtName"
+                id="registerDonardistrict"
+              >
+                <option value=""></option>
               </select>
-              <select
-                class="search-donar-list"
-                name="searchDonarlist"
-                id="searchDonarlist"
+              <label for="blood-group"
+                >Blood Group <span class="mandatory">*</span></label
               >
-                <option value="" id="none">Blood Group</option>
+              <select class="bloodgroup" name="blood-group" id="bloodgroup">
+                <option value="" id="none"></option>
                 <option value="A+" id="A+">A+</option>
                 <option value="A-" id="A-">A-</option>
                 <option value="B+" id="B+">B+</option>
@@ -98,215 +232,410 @@
                 <option value="AB+" id="AB+">AB+</option>
                 <option value="AB-" id="AB-">AB-</option>
               </select>
-            </div>
-            <div class="search-donarBtn" id="search-donarBtn">
               <button
+                class="btn btn-danger animation-on-hover"
                 type="button"
-                id="searchbtn"
-                data-toggle="modal"
-                data-target="#exampleModalLong"
+                id="register"
               >
-                Find donar
+                Register
               </button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="">
+          <h1 class="text-center text-darker pt-lg">
+            DONATION PROCESS
+            <br />
+            <span>
+              <img src="images/separator.png" alt="" srcset="" />
+            </span>
+          </h1>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-12">
+            <div class="card" style="width: 20rem;">
+              <img
+                class="card-img-top"
+                src="images/process_1.jpg"
+                alt="Card image cap"
+              />
+              <div class="text-block">
+                <h2>1</h2>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">REGISTRATION</h4>
+                <p class="card-text">
+                  You need to complete a very simple registration form. Which
+                  contains all required contact information to enter in the
+                  donation process.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-12">
+            <div class="card" style="width: 20rem;">
+              <img
+                class="card-img-top"
+                src="images/process_2.jpg"
+                alt="Card image cap"
+              />
+              <div class="text-block">
+                <h2>2</h2>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">SCREENING</h4>
+                <p class="card-text">
+                  A drop of blood from your finger will take for simple test to
+                  ensure that your blood iron levels are proper enough for
+                  donation process.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-12">
+            <div class="card" style="width: 20rem;">
+              <img
+                class="card-img-top"
+                src="images/process_3.jpg"
+                alt="Card image cap"
+              />
+              <div class="text-block">
+                <h2>3</h2>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">DONATION</h4>
+                <p class="card-text">
+                  After ensuring and passed screening test successfully you will
+                  be directed to a donor bed for donation. It will take only
+                  6-10 minutes.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <div
-          class="modal fade"
-          id="exampleModalLong"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLongTitle"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">
-                  Matched donors database
-                </h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body" id="table-information">
-                <div class="" >
-                  <table class="show-table" id="show-table"></table>
+      </section>
+      <section>
+        <div>
+          <h1 class="text-center text-darker pt-lg">
+            Requirements by Donation Type
+            <br />
+            <span>
+              <img src="images/separator.png" alt="" srcset="" />
+            </span>
+          </h1>
+        </div>
+        <div class="requirements">
+          <p>
+            To ensure the safety of both patients and donors, these are some of
+            the requirements donors must meet to be eligible to donate blood
+            based on their donation type.
+          </p>
+        </div>
+        <div>
+          <div class="collaps">
+            <p class="">
+              <a
+                class=""
+                data-toggle="collapse"
+                href="#WholeBloodDonation"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+                ><span
+                  ><i class="fa fa-plus-circle" aria-hidden="true"></i
+                ></span>
+                Whole Blood Donation
+              </a>
+            </p>
+          </div>
+          <div class="collapse" id="WholeBloodDonation">
+            <div class="card card-body">
+              <div class="row requirements-border">
+                <div class="col-md-7 col-12 requirements-alignment">
+                  <div class="requirements-img">
+                    <img src="images/image.jpeg" alt="" srcset="" />
+                  </div>
+                </div>
+                <div class="col-md-5 col-12 requirements-text">
+                  <h3>Whole Blood Donation</h3>
+                  <div>
+                    <li><span> Donation frequency: Every 56 days*</span></li>
+                    <li>
+                      <span>
+                        You must be in good health and feeling well**</span
+                      >
+                    </li>
+                    <li>
+                      <span>
+                        You must be at least 16 years old in most states</span
+                      >
+                    </li>
+                    <li><span> You must weigh at least 110 lbs</span></li>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="">
-        <h1 class="text-center text-darker pt-lg">
-          REGISTER NOW
-          <br />
-          <span>
-            <img src="images/separator.png" alt="" srcset="" />
-          </span>
-        </h1>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-12 imagealignment">
-          <img class="appointimage" src="images/appointment.jpg" alt="" />
-        </div>
-        <div class="col-md-6 col-12">
-          <form
-            action="/index"
-            method="post"
-            class="formData w3-container"
-            id="registration-form"
-            enctype="application/x-www-form-urlencoded"
-          >
-            <label for="firstname"
-              >First Name <span class="mandatory">*</span></label
-            >
-            <input
-              class="w3-input"
-              type="text"
-              name="firstname"
-              id="firstname"
-              required
-            />
-
-            <label for="lastname"
-              >Last Name <span class="mandatory">*</span></label
-            >
-            <input
-              class="w3-input"
-              type="text"
-              name="lastname"
-              id="lastname"
-              required
-            />
-
-            <label for="mobnum"
-              >Mobile Number <span class="mandatory">*</span></label
-            >
-            <input
-              class="w3-input"
-              type="text"
-              name="mobnum"
-              id="mobnum"
-              required
-            />
-
-            <label for="email">Email ID(optional)</label>
-            <input class="w3-input" type="email" name="email" id="email" />
-
-            <label for="place">District <span class="mandatory">*</span></label>
-            <input
-              class="w3-input"
-              type="text"
-              name="place"
-              id="place"
-              required
-            />
-
-            <label for="blood-group"
-              >Blood Group <span class="mandatory">*</span></label
-            >
-            <select class="bloodgroup" name="blood-group" id="bloodgroup">
-              <option value="" id="none"></option>
-              <option value="A+" id="A+">A+</option>
-              <option value="A-" id="A-">A-</option>
-              <option value="B+" id="B+">B+</option>
-              <option value="B-" id="B-">B-</option>
-              <option value="O+" id="O+">O+</option>
-              <option value="O-" id="O-">O-</option>
-              <option value="AB+" id="AB+">AB+</option>
-              <option value="AB-" id="AB-">AB-</option>
-            </select>
-            <button
-              class="btn btn-danger animation-on-hover"
-              type="button"
-              id="register"
-            >
-              Register
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="">
-        <h1 class="text-center text-darker pt-lg">
-          DONATION PROCESS
-          <br />
-          <span>
-            <img src="images/separator.png" alt="" srcset="" />
-          </span>
-        </h1>
-      </div>
-      <div class="row">
-        <div class="col-md-4 col-12">
-          <div class="card" style="width: 20rem;">
-            <img
-              class="card-img-top"
-              src="images/process_1.jpg"
-              alt="Card image cap"
-            />
-            <div class="text-block">
-              <h2>1</h2>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">REGISTRATION</h4>
-              <p class="card-text">
-                You need to complete a very simple registration form. Which
-                contains all required contact information to enter in the
-                donation process.
-              </p>
+        <div>
+          <div class="collaps">
+            <p class="">
+              <a
+                class=""
+                data-toggle="collapse"
+                href="#PowerRedDonation"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+                ><span
+                  ><i class="fa fa-plus-circle" aria-hidden="true"></i
+                ></span>
+                Power Red Donation
+              </a>
+            </p>
+          </div>
+          <div class="collapse" id="PowerRedDonation">
+            <div class="card card-body">
+              <div class="row requirements-border">
+                <div class="col-md-7 col-12 requirements-alignment">
+                  <div class="requirements-img">
+                    <img src="images/image (1).jpeg" alt="" srcset="" />
+                  </div>
+                </div>
+                <div class="col-md-5 col-12 requirements-text">
+                  <h3>Power Red Donation</h3>
+                  <div>
+                    <li><span> Donation frequency: Every 112 days, up to 3 times/year*</span></li>
+                    <li>
+                      <span>
+                        You must be in good health and feeling well**</span
+                      >
+                    </li>
+                    <li>
+                      <span>
+                        <strong> Male donors <sup>+&nbsp;</sup></strong> must be at least 17 years old in most states, at least 5'1" tall and weigh at least 130 lbs</span
+                      >
+                    </li>
+                    <li><span><strong> Female donors <sup>+&nbsp;</sup></strong> must be at least 19 years old, at least 5'5" tall and weigh at least 150 lbs</span></li>
+                  </div>
+                </div> 
             </div>
           </div>
         </div>
-        <div class="col-md-4 col-12">
-          <div class="card" style="width: 20rem;">
-            <img
-              class="card-img-top"
-              src="images/process_2.jpg"
-              alt="Card image cap"
-            />
-            <div class="text-block">
-              <h2>2</h2>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">SCREENING</h4>
-              <p class="card-text">
-                A drop of blood from your finger will take for simple test to
-                ensure that your blood iron levels are proper enough for
-                donation process.
-              </p>
+        <div>
+          <div class="collaps">
+            <p class="">
+              <a
+                class=""
+                data-toggle="collapse"
+                href="#PlateletDonation"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+                ><span
+                  ><i class="fa fa-plus-circle" aria-hidden="true"></i
+                ></span>
+                Platelet Donation
+              </a>
+            </p>
+          </div>
+          <div class="collapse" id="PlateletDonation">
+            <div class="card card-body">
+              <div class="row requirements-border">
+                <div class="col-md-7 col-12 requirements-alignment">
+                  <div class="requirements-img">
+                    <img src="images/image (2).jpeg" alt="" srcset="" />
+                  </div>
+                </div>
+                <div class="col-md-5 col-12 requirements-text">
+                  <h3>Platelet Donation</h3>
+                  <div>
+                    <li><span>Donation frequency: Every 7 days, up to 24 times/year*</span></li>
+                    <li>
+                      <span>
+                        You must be in good health and feeling well**</span
+                      >
+                    </li>
+                    <li>
+                      <span>
+                        You must be at least 17 years old in most states </span></li>
+                    <li>
+                      <span>
+                        You must weigh at least 110 lbs</span></li>
+                    
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4 col-12">
-          <div class="card" style="width: 20rem;">
-            <img
-              class="card-img-top"
-              src="images/process_3.jpg"
-              alt="Card image cap"
-            />
-            <div class="text-block">
-              <h2>3</h2>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">DONATION</h4>
-              <p class="card-text">
-                After ensuring and passed screening test successfully you will
-                be directed to a donor bed for donation. It will take only 6-10
-                minutes.
-              </p>
+        <div>
+          <div class="collaps">
+            <p class="">
+              <a
+                class=""
+                data-toggle="collapse"
+                href="#ABElitePlasmaDonation"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+                ><span
+                  ><i class="fa fa-plus-circle" aria-hidden="true"></i
+                ></span>
+                AB Elite Plasma Donation
+              </a>
+            </p>
+          </div>
+          <div class="collapse" id="ABElitePlasmaDonation">
+            <div class="card card-body">
+              <div class="row requirements-border">
+                <div class="col-md-7 col-12 requirements-alignment">
+                  <div class="requirements-img">
+                    <img src="images/image (3).jpeg" alt="" srcset="" />
+                  </div>
+                </div>
+                <div class="col-md-5 col-12 requirements-text">
+                  <h3>Whole Blood Donation</h3>
+                  <div>
+                    <li><span>Donation frequency: Every 28 days, up to 13 times/year*</span></li>
+                    <li>
+                      <span>
+                        You must have type AB blood</span
+                      >
+                    </li>
+                    <li>
+                      <span>
+                        You must be in good health and feeling well**</span
+                      >
+                    </li>
+                    <li><span>  You must be at least 17 years old</span></li>
+                    <li><span> You must weigh at least 110 lbs</span></li>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+      <section>
+        <div class="commonReasons">
+          <h1 class="text-center text-darker pt-lg">
+            Common Reasons People Can't Donate
+            <br/>
+            <span>
+              <img src="images/separator.png" alt="" srcset="" />
+            </span>
+          </h1>
+          <h3>
+            Even if you were deferred in the past, you may be eligible to donate now.
+          </h3>
+          <div class="collaps">
+            <p class="">
+              <a
+                class=""
+                data-toggle="collapse"
+                href="#commonReasons"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+                ><span
+                  ><i class="fa fa-plus-circle" aria-hidden="true"></i
+                ></span>
+                  Common Reasons People Can't Donate
+              </a>
+            </p>
+            <div class="collapse" id="commonReasons">
+              <div class="card card-body">
+                <div class="row">
+                  <div class="col-md-4 col-12 ">
+                    <div class="borderAlignment">
+                    <div class="commonReasonsImg"style="padding-bottom: 2rem;" >
+                      <img src="images/cant_donate1.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="commonReasonsContent">
+                      <h3>
+                        Cold, Flu and Other Types of Illness,
+                      </h3>
+                      <p>
+                        If you don’t feel well on the day of your donation, 
+                        please call to cancel. We’ll be happy to see you 24 hours after your symptoms pass.
+                      </p>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="col-md-4 col-12 ">
+                    <div class="borderAlignment">
+                    <div class="commonReasonsImg">
+                      <img src="images/cant_donate2.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="commonReasonsContent">
+                      <h3>
+                        Information About Medications,
+                      </h3>
+                      <p>
+                        Most medications will not disqualify you from being able to donate blood, 
+                        but may require a waiting period after your final dose.
+                      </p>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="borderAlignment">
+                    <div class="commonReasonsImg" style="padding-bottom: 1.2rem;">
+                      <img src="images/cant_donate3.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="commonReasonsContent">
+                      <h3>
+                        Low Iron,
+                      </h3>
+                      <p>
+                        If you were unable to donate due to low iron, you may still be able to donate in the future. 
+                        The Red Cross recommends taking steps to help increase your iron level.
+                      </p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="row vedioBorder">
+          <div class="col-md-6 col-12 videoAlignment">
+            <iframe 
+              width="560" 
+              height="315" 
+              src="https://www.youtube.com/embed/-AoQlW2i3IM?autoplay=0" 
+              frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="col-md-6 col-12 videoAlignment">
+            <iframe 
+              width="560" 
+              height="315" 
+              src="https://www.youtube.com/embed/hiqhyVAUA6A?autoplay=0" 
+              frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer">
+        <p>
+          © 2020 Blood-Bank App Kerala. All rights reserved | 
+          <a 
+          href="https://personal-websiteserver.herokuapp.com/">Design by S@R Design
+        </a>
+        </p>
+        <div class="scroller">
+          <a 
+          href="#home"><i class="fa fa-arrow-circle-up fa-3x" aria-hidden="true"></i>
+        </a>
         </div>
       </div>
-    </section>
+    </footer>
 
     <!--   Core JS Files   -->
     <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>

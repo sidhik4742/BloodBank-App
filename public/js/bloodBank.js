@@ -11,24 +11,55 @@ $(document).ready(function () {
     }
     prevScrollpos = currentScrollPos;
   };
+  let districtName = [
+    "Thiruvananthapuram",
+    "Kollam",
+    "Pathanamthitta",
+    "Alappuzha",
+    "Kottayam",
+    "Idukki",
+    "Ernakulam",
+    "Thrissur",
+    "Palakkad",
+    "Malappuram",
+    "Kozhikode",
+    "Wayanad",
+    "Kannur",
+    "Kasaragod",
+  ];
+  let searchDonardistrict = document.getElementById("searchDonardistrict");
+  let registerDonardistrict = document.getElementById("registerDonardistrict");
+  districtName.forEach(function (item, index, array) {
+    let addOptions = document.createElement("option");
+    addOptions.setAttribute("value", item);
+    let creatText = document.createTextNode(item);
+    addOptions.appendChild(creatText);
+    searchDonardistrict.appendChild(addOptions);
+    registerDonardistrict.appendChild(addOptions.cloneNode(true));
+  });
+  console.log(searchDonardistrict);
 
   var tableClearingFlag = false;
   let xhr = new XMLHttpRequest();
+
   document.getElementById("register").addEventListener("click", function () {
     let personDetails = {};
     let firstName = document.getElementById("firstname").value;
     let lastName = document.getElementById("lastname").value;
     let mobNumber = document.getElementById("mobnum").value;
     let email = document.getElementById("email").value;
-    let place = document.getElementById("place").value;
+    let regDonerDistrictTemp = document.getElementById("registerDonardistrict");
+    let registerDonardistrict = 
+      regDonerDistrictTemp.options[regDonerDistrictTemp.selectedIndex].value;
     let bloodGrouptemp = document.getElementById("bloodgroup");
-    let bloodGroup = bloodGrouptemp.options[bloodGrouptemp.selectedIndex].value;
+    let bloodGroup = 
+      bloodGrouptemp.options[bloodGrouptemp.selectedIndex].value;
     personDetails = {
       FirstName: firstName,
       LastName: lastName,
       MobileNumber: mobNumber,
       EmailID: email,
-      Place: place,
+      District: registerDonardistrict,
       BloodGroup: bloodGroup,
     };
 
@@ -39,8 +70,8 @@ $(document).ready(function () {
         document.getElementById("lastname").value = " ";
         document.getElementById("mobnum").value = " ";
         document.getElementById("email").value = " ";
-        document.getElementById("place").value = " ";
-        bloodGrouptemp.options[0].innerHTML = "Blood Group";
+        bloodGrouptemp.options[0].innerHTML = "Select District";
+        bloodGrouptemp.options[0].innerHTML = "Select Blood-Group";
       }
     };
 
@@ -66,14 +97,17 @@ $(document).ready(function () {
   });
 
   document.getElementById("searchbtn").addEventListener("click", function () {
-    let searchPlace = document.getElementById("searchPlace").value;
-    let searchDonarlistTemp = document.getElementById("searchDonarlist");
-    let searchDonarlist =
-      searchDonarlistTemp.options[searchDonarlistTemp.selectedIndex].value;
+    let searchDonardistrictTemp = document.getElementById("searchDonardistrict");
+    let searchDonarbloodTemp = document.getElementById("searchDonarlist");
+    console.log(searchDonardistrictTemp);
+    let searchDonardistrict =
+      searchDonardistrictTemp.options[searchDonardistrictTemp.selectedIndex].value;
+    let searchDonarblood =
+      searchDonarbloodTemp.options[searchDonarbloodTemp.selectedIndex].value;
     let showTable = document.getElementById("table-information");
     let searchOption = {
-      Place: searchPlace,
-      BloodGroup: searchDonarlist,
+      "District": searchDonardistrict,
+      "BloodGroup": searchDonarblood,
     };
 
     xhr.onreadystatechange = function () {
@@ -82,33 +116,33 @@ $(document).ready(function () {
         console.log(tableClearingFlag);
         if (this.responseText != "[]") {
           let tableInformation = JSON.parse(this.responseText);
-          console.log ("bject contain data");
+          console.log("bject contain data");
           if (tableClearingFlag === true) {
             clearingaTable();
             tableClearingFlag = false;
           }
           showContentTable(tableInformation);
         } else {
-          console.log ("bject contain no-data");
+          console.log("bject contain no-data");
           alert("Nothing Matched!. please try first letter capitalized");
           if (tableClearingFlag === true) {
-              clearingaTable();
-              tableClearingFlag = false;
-            }
-            // console.log ("bject contain no-data");
-            // if (tableClearingFlag === true) {
-            //   document.getElementById("table-information").innerHTML = " ";
-            //   tableClearingFlag = false;
-            // }
-            // let pTag = document.createElement("p");
-            // let textNode = document.createTextNode(
-            //   "Nothing Matched!. please try first letter capitalized"
-            // );
-            // pTag.appendChild(textNode);
-            // showTable.appendChild(pTag);
-            // tableClearingFlag = true;
-            // console.log(showTable);
-            // console.log(tableClearingFlag);
+            clearingaTable();
+            tableClearingFlag = false;
+          }
+          // console.log ("bject contain no-data");
+          // if (tableClearingFlag === true) {
+          //   document.getElementById("table-information").innerHTML = " ";
+          //   tableClearingFlag = false;
+          // }
+          // let pTag = document.createElement("p");
+          // let textNode = document.createTextNode(
+          //   "Nothing Matched!. please try first letter capitalized"
+          // );
+          // pTag.appendChild(textNode);
+          // showTable.appendChild(pTag);
+          // tableClearingFlag = true;
+          // console.log(showTable);
+          // console.log(tableClearingFlag);
         }
       }
     };
@@ -120,7 +154,7 @@ $(document).ready(function () {
   });
 
   function showContentTable(tableInformation) {
-    console.log(typeof(tableInformation));
+    console.log(typeof tableInformation);
     console.log(tableInformation);
 
     // let firstname = tableInformation[0].FirstName;
@@ -160,6 +194,5 @@ $(document).ready(function () {
       table.removeChild(table.firstChild);
     }
     console.log(table);
-
   }
 });

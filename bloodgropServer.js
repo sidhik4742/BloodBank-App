@@ -37,7 +37,7 @@ app.post('/findData',function(req,res){
    //check the value from the client with the json array(DB)
   // if a value match then take the value and sent to back
   for(var counter =0;counter < dataFromFile.length;counter++){
-    if(dataFromFile[counter].Place === req.body.Place || dataFromFile[counter].BloodGroup === req.body.BloodGroup){
+    if(dataFromFile[counter].District === req.body.District || dataFromFile[counter].BloodGroup === req.body.BloodGroup){
       findMatch.push(dataFromFile[counter]); 
     }
   };

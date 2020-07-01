@@ -2,10 +2,10 @@
   "name": "bloodbank",
   "version": "1.0.0",
   "description": "To creat an app to store the details of blood doners and to search the details by using keyword \"place\" and\"blood group\"",
-  "main": "bloodgroup.js",
+  "main": "bloodgropServer.js",
   "scripts": {
     "test": "echo \"Error:no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node bloodgropServer.js"
   },
   "keywords": [
     "fsread",

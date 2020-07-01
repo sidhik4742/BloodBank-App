@@ -31,7 +31,7 @@ app.post('/',function(req,res){
 app.post('/findData',function(req,res){
   var findMatch =[] ;
    
-  console.log(req.body);
+  // console.log(req.body);
   dataFromFile = readTofileAsDB(); 
   // console.log(dataFromFile);
    //check the value from the client with the json array(DB)
@@ -41,7 +41,7 @@ app.post('/findData',function(req,res){
       findMatch.push(dataFromFile[counter]); 
     }
   };
-  console.log("No. of matches found = "+findMatch.length);
+  // console.log("No. of matches found = "+findMatch.length);
 
   res.json(findMatch);
   res.end();
@@ -50,40 +50,37 @@ app.post('/findData',function(req,res){
 
 
   app.listen(port,function(){
-    console.log("Server listen at port 8000");
+    // console.log("Server listen at port 8000");
 });
 
 
 function writeTofileAsDB(receivedData){
   
   personDetails.push(receivedData);
-  console.log(personDetails);
+  // console.log(personDetails);
 
   fs.writeFile('Db/Blood-groupAddress.json', JSON.stringify(personDetails),function (err){
     if(err){
-      console.log(err);
+      // console.log(err);
     }else{
-      console.log("file writing success");
+      // console.log("file writing success");
     }
   });
 }
 
 function readTofileAsDB(){
-  console.log("readfile...........")
+  // console.log("readfile...........")
   let personDetailsfromDB ;
   let data = fs.readFileSync('Db/Blood-groupAddress.json', 'utf8');
-  try{
-    if(data != "")
-    throw("Empty file");
-  }
-  catch{
-    console.log(err);
-  }
-  finally{
+    try{
       personDetailsfromDB = JSON.parse(data);
+      throw(err);
+    }
+    catch (err){
+      // console.log( "error = "+err);
+      
+    }
       // console.log(typeof(personDetailsfromDB));
       // console.log(personDetailsfromDB[0]);
       return(personDetailsfromDB);
-  }
-  
 }

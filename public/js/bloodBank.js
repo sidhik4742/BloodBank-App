@@ -59,7 +59,7 @@ $(document).ready(function () {
     searchDonardistrict.appendChild(addOptions);
     registerDonardistrict.appendChild(addOptions.cloneNode(true));
   });
-  console.log(searchDonardistrict);
+  // console.log(searchDonardistrict);
 
   var tableClearingFlag = false;
   let xhr = new XMLHttpRequest();
@@ -88,7 +88,8 @@ $(document).ready(function () {
 
     xhr.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
-        console.log(this.responseText);
+        alert(this.responseText);
+        // console.log(this.responseText);
         document.getElementById("firstname").value = " ";
         document.getElementById("lastname").value = " ";
         document.getElementById("mobnum").value = " ";
@@ -101,7 +102,7 @@ $(document).ready(function () {
     xhr.open("post", "/", true);
     xhr.setRequestHeader("content-type", "application/json");
     xhr.send(JSON.stringify(personDetails));
-    console.log(personDetails);
+    // console.log(personDetails);
   });
 
   document.getElementById("searchlogo").addEventListener("click", function () {
@@ -122,7 +123,7 @@ $(document).ready(function () {
   document.getElementById("searchbtn").addEventListener("click", function () {
     let searchDonardistrictTemp = document.getElementById("searchDonardistrict");
     let searchDonarbloodTemp = document.getElementById("searchDonarlist");
-    console.log(searchDonardistrictTemp);
+    // console.log(searchDonardistrictTemp);
     let searchDonardistrict =
       searchDonardistrictTemp.options[searchDonardistrictTemp.selectedIndex].value;
     let searchDonarblood =
@@ -136,18 +137,20 @@ $(document).ready(function () {
     xhr.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
         // console.log(this.responseText);
-        console.log(tableClearingFlag);
+        // console.log(tableClearingFlag);
         if (this.responseText != "[]") {
           let tableInformation = JSON.parse(this.responseText);
-          console.log("bject contain data");
+          document.getElementById("displayContent").style.display = "block";
+          // console.log("bject contain data");
           if (tableClearingFlag === true) {
             clearingaTable();
             tableClearingFlag = false;
           }
           showContentTable(tableInformation);
         } else {
-          console.log("bject contain no-data");
-          alert("Nothing Matched!. please try first letter capitalized");
+          // console.log("bject contain no-data");
+          document.getElementById("displayContent").style.display = "none";
+          alert("Nothing Matched..!");
           if (tableClearingFlag === true) {
             clearingaTable();
             tableClearingFlag = false;
@@ -173,12 +176,12 @@ $(document).ready(function () {
     xhr.open("post", "/findData", true);
     xhr.setRequestHeader("content-type", "application/json");
     xhr.send(JSON.stringify(searchOption));
-    console.log(searchOption);
+    // console.log(searchOption);
   });
 
   function showContentTable(tableInformation) {
-    console.log(typeof tableInformation);
-    console.log(tableInformation);
+    // console.log(typeof tableInformation);
+    // console.log(tableInformation);
 
     // let firstname = tableInformation[0].FirstName;
     // let lastName = tableInformation[0].LastName;
@@ -189,23 +192,27 @@ $(document).ready(function () {
     var cell0 = row.insertCell(0);
     var cell1 = row.insertCell(1);
     var cell2 = row.insertCell(2);
+    var cell3 = row.insertCell(3);
     cell0.innerHTML = "Name";
     cell1.innerHTML = "Contact Number";
     cell2.innerHTML = "Blood Group";
+    cell3.innerHTML = "District";
     tableInformation.forEach(function (item, index, array) {
       // console.log(item);
       row = table.insertRow(index + 1);
       cell0 = row.insertCell(0);
       cell1 = row.insertCell(1);
       cell2 = row.insertCell(2);
+      cell3 = row.insertCell(3);
       cell0.innerHTML = item.FirstName + " " + item.LastName;
       cell1.innerHTML = item.MobileNumber;
       cell2.innerHTML = item.BloodGroup;
+      cell3.innerHTML = item.District;
       document.getElementById("table-information").appendChild(table);
     });
     tableClearingFlag = true;
     tableInformation.length = 0;
-    console.log(tableClearingFlag);
+    // console.log(tableClearingFlag);
   }
 
   function clearingaTable() {
@@ -216,6 +223,6 @@ $(document).ready(function () {
     while (table.firstChild) {
       table.removeChild(table.firstChild);
     }
-    console.log(table);
+    // console.log(table);
   }
 });

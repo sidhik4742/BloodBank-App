@@ -160,7 +160,7 @@ td{
     vertical-align: bottom;
 }
 th, td{
-    padding: 15px;
+    padding: 6px;
     text-align: center;
 
 }
@@ -312,10 +312,6 @@ th, td{
     .collaps a{
         text-align: center;
     }
-}
-.commonReasons{
-   
-
 }
 .commonReasons h1{
     color: black;

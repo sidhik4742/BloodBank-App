@@ -47,12 +47,12 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#registration-form"
+                  <a class="nav-link blinker" href="#registration-form"
                     >Donar-Registration</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#registration-form"
+                  <a class="nav-link" href="#searchlogo"
                     >Request Blood</a
                   >
                 </li>
@@ -180,7 +180,6 @@
                 type="text"
                 name="firstname"
                 id="firstname"
-                required
               />
 
               <label for="lastname"
@@ -191,7 +190,6 @@
                 type="text"
                 name="lastname"
                 id="lastname"
-                required
               />
 
               <label for="mobnum"
@@ -202,7 +200,6 @@
                 type="text"
                 name="mobnum"
                 id="mobnum"
-                required
               />
 
               <label for="email">Email ID(optional)</label>
@@ -221,7 +218,7 @@
               <label for="blood-group"
                 >Blood Group <span class="mandatory">*</span></label
               >
-              <select class="bloodgroup" name="blood-group" id="bloodgroup">
+              <select class="bloodgroup" name="bloodgroup" id="bloodgroup">
                 <option value="" id="none"></option>
                 <option value="A+" id="A+">A+</option>
                 <option value="A-" id="A-">A-</option>
@@ -640,6 +637,7 @@
     <!--   Core JS Files   -->
     <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
     <script
       src="assets/js/core/bootstrap.min.js"
       type="text/javascript"

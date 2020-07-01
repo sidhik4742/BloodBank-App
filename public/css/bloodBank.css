@@ -30,6 +30,19 @@ h1{
     position: relative;
     
 }
+.blinker{
+    color: rgb(223, 0, 8) !important;
+    font-weight: bold;
+    animation-name: blink;
+    animation-duration: 0.6s;
+    animation-iteration-count: infinite;
+
+}
+@keyframes blink{
+    50%{
+        opacity: 0;
+    }
+}
 .contentText{
    padding-top: 11rem;
    padding-left: 5rem;
@@ -186,6 +199,9 @@ th, td{
     width: 100%;
     height:auto
 }
+.error {
+    color: red;
+  }
 
 @media only screen and (max-width: 875px) {
     .contentText{
@@ -275,6 +291,7 @@ th, td{
   .collaps a{
       padding-left: 3rem;
       color: rgb(223, 0, 8);
+      font-weight: 900;
   }
   @media only screen and (max-width: 875px) {
     .requirements-border{

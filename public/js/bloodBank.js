@@ -1,16 +1,38 @@
 // const bodyParser = require("body-parser");
 
 $(document).ready(function () {
-  var prevScrollpos = window.pageYOffset;
-  window.onscroll = function () {
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-      document.getElementById("navbar").style.top = "0";
-    } else {
-      document.getElementById("navbar").style.top = "-60px";
+  $("#registration-form").validate({
+    rules:{
+      firstname:{
+        required: true,
+        minlength:4
+      },
+      lastname:{
+        required:true,
+        minlength:1
+      },
+      mobnum:{
+        required:true,
+        minlength:9,
+        maxlength:10,
+        number:true
+      },
+      districtName:{
+        required:true
+      },
+      bloodgroup:{
+        required:true
+      }
+    },
+    messages:{
+      firstname:"Please enter your first name..!",
+      lastname:"Please enter your last name..!",
+      mobnum:"Please enter valid mobile number",
+      districtName:"Please choose your district",
+      bloodgroup:"Please choose your Blood Group",
+     
     }
-    prevScrollpos = currentScrollPos;
-  };
+  });
   let districtName = [
     "Thiruvananthapuram",
     "Kollam",
@@ -43,6 +65,7 @@ $(document).ready(function () {
   let xhr = new XMLHttpRequest();
 
   document.getElementById("register").addEventListener("click", function () {
+    
     let personDetails = {};
     let firstName = document.getElementById("firstname").value;
     let lastName = document.getElementById("lastname").value;
